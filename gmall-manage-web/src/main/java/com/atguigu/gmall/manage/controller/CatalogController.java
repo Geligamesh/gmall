@@ -20,7 +20,6 @@ public class CatalogController {
         return catalogService.getCatalog3(catalog2Id);
     }
 
-
     @PostMapping("getCatalog2")
     public List<PmsBaseCatalog2> getCatalog2(String catalog1Id){
         return catalogService.getCatalog2(catalog1Id);
