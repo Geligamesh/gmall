@@ -53,7 +53,6 @@ public class PmsProductInfo implements Serializable {
         this.id = id;
     }
 
-
     public String getDescription() {
         return description;
     }

@@ -44,10 +44,4 @@ public class AttrController  {
         return attrService.baseSaleAttrList();
     }
 
-    @PostMapping("saveSpuInfo")
-    public String saveSpuInfo(@RequestBody PmsProductInfo pmsProductInfo) {
-
-        return "success";
-    }
-
 }
