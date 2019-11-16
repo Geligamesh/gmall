@@ -73,7 +73,6 @@ public class SpuServiceImpl implements SpuService {
             List<PmsProductSaleAttrValue> pmsProductSaleAttrValues = pmsProductSaleAttrValueMapper.select(pmsProductSaleAttrValue);
             productSaleAttr.setSpuSaleAttrValueList(pmsProductSaleAttrValues);
         }
-
         return PmsProductSaleAttrs;
     }
 
@@ -82,9 +81,7 @@ public class SpuServiceImpl implements SpuService {
 
         PmsProductImage pmsProductImage = new PmsProductImage();
         pmsProductImage.setProductId(spuId);
-        List<PmsProductImage> pmsProductImages = pmsProductImageMapper.select(pmsProductImage);
-
-        return pmsProductImages;
+        return pmsProductImageMapper.select(pmsProductImage);
 
     }
 }

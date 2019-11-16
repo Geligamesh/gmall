@@ -29,7 +29,15 @@ public class AttrServiceImpl implements AttrService {
     public List<PmsBaseAttrInfo> attrInfoList(String catalog3Id) {
         PmsBaseAttrInfo pmsBaseAttrInfo = new PmsBaseAttrInfo();
         pmsBaseAttrInfo.setCatalog3Id(catalog3Id);
-        return pmsBaseAttrInfoMapper.select(pmsBaseAttrInfo);
+        List<PmsBaseAttrInfo> pmsBaseAttrInfos = pmsBaseAttrInfoMapper.select(pmsBaseAttrInfo);
+        for (PmsBaseAttrInfo baseAttrInfo : pmsBaseAttrInfos) {
+            String id = baseAttrInfo.getId();
+            PmsBaseAttrValue pmsBaseAttrValue = new PmsBaseAttrValue();
+            pmsBaseAttrValue.setAttrId(id);
+            List<PmsBaseAttrValue> pmsBaseAttrValues = pmsBaseAttrValueMapper.select(pmsBaseAttrValue);
+            baseAttrInfo.setAttrValueList(pmsBaseAttrValues);
+        }
+        return pmsBaseAttrInfos;
     }
 
     //保存更新删除属性和属性值

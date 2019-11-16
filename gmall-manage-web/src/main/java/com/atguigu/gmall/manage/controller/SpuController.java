@@ -1,7 +1,9 @@
 package com.atguigu.gmall.manage.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.atguigu.gmall.bean.PmsProductImage;
 import com.atguigu.gmall.bean.PmsProductInfo;
+import com.atguigu.gmall.bean.PmsProductSaleAttr;
 import com.atguigu.gmall.manage.util.PmsUploadUtil;
 import com.atguigu.gmall.service.SpuService;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +16,17 @@ public class SpuController {
 
     @Reference
     SpuService spuService;
+
+    @GetMapping("spuSaleAttrList")
+    public List<PmsProductSaleAttr> spuSaleAttrList(String spuId) {
+        return spuService.spuSaleAttrList(spuId);
+    }
+
+    //查询SPU的所有商品
+    @GetMapping("spuImageList")
+    public List<PmsProductImage> spuImageList(String spuId) {
+        return spuService.spuImageList(spuId);
+    }
 
     //文件上传
     @PostMapping("fileUpload")
