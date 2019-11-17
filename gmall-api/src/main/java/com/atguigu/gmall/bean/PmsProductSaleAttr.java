@@ -10,19 +10,15 @@ public class PmsProductSaleAttr implements Serializable {
 
     @Id
     @Column
-    String id ;
-
+    private String id ;
     @Column
-    String productId;
-
+    private String productId;
     @Column
-    String saleAttrId;
-
+    private String saleAttrId;
     @Column
-    String saleAttrName;
-
+    private String saleAttrName;
     @Transient
-    List<PmsProductSaleAttrValue> spuSaleAttrValueList;
+    private List<PmsProductSaleAttrValue> spuSaleAttrValueList;
 
     public String getId() {
         return id;
