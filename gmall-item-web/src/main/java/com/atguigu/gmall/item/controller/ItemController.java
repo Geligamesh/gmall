@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -22,10 +24,11 @@ public class ItemController {
     SkuService skuService;
 
     @RequestMapping("{skuId}.html")
-    public String item(@PathVariable("skuId") String skuId,ModelMap modelMap) {
+    public String item(@PathVariable("skuId") String skuId, ModelMap modelMap) {
+
         PmsSkuInfo pmsSkuInfo = skuService.getSkuById(skuId);
         if (pmsSkuInfo == null) {
-            return null;
+            return "error";
         }
         modelMap.put("skuInfo", pmsSkuInfo);
         //销售属性列表
